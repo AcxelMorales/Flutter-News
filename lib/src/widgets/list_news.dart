@@ -95,7 +95,7 @@ class _CardImage extends StatelessWidget {
       child: ClipRRect(
         borderRadius: BorderRadius.only(topLeft: Radius.circular(50.0), bottomRight: Radius.circular(50.0)),
         child: Container(
-          child: (neew.urlToImage != '(none)') ? FadeInImage(
+          child: (neew.urlToImage != null) ? FadeInImage(
             image: NetworkImage(neew.urlToImage),
             placeholder: AssetImage('assets/img/giphy.gif'),
           ) : Image(image: AssetImage('assets/img/no-image.png'),)
@@ -114,7 +114,7 @@ class _CardBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 15.0),
-      child: Text(neew.description),
+      child: (neew.description != null) ? Text(neew.description) : null,
     );
   }
 }
